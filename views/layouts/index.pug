@@ -1,0 +1,15 @@
+doctype html
+html
+    include ../partials/head.pug    
+    body
+        include ../partials/menu.pug
+        section(class="container")
+            div(class="row")
+                h1 Productos
+                each prod in res
+                    div(class="card col-3" style="margin:2%")
+                    
+                        img(class="card-img-top" src= prod.thumbnail, alt="imagen producto")
+                        div(class="card-body")
+                            h5(class="card-title")= prod.title
+                            p(class="card-text")= '$'+prod.price

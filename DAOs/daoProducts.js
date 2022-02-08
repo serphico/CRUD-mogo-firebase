@@ -27,6 +27,20 @@ class ProdDao extends Crud{
             console.log(err)
         }
     }
+    async updateProd(obj){
+        try {
+            await this.update(obj)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    async deleteProd(obj){
+        try {
+            await this.delete(obj)
+        } catch (err) {
+            console.log(err)
+        }
+    }
 } 
 
 

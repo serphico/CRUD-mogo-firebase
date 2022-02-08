@@ -29,4 +29,13 @@ prodRouter.post('/upload-productos', (req, res) =>{
 
 })
 
+prodRouter.post('/productos/update',(req, res) => {
+    console.log(req.body)
+    /*try{
+        prodDao.updateProd(req.body)
+    }catch(err){
+        console.log(err)
+    }*/
+})
+
 export default prodRouter;

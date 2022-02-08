@@ -1,0 +1,23 @@
+.card{
+    position: relative !important;
+}
+
+.form-update{
+    position: absolute !important;
+    background-color: white;
+    width: 96%;
+    height: -webkit-fill-available;
+    height: -moz-fill-available;
+    height: fill-available;
+    padding: 0;
+    margin: 0;
+}
+
+.form-update form{
+    display: flex;
+    flex-direction: column;
+}
+
+.close-update{
+    align-content: flex-end;
+}

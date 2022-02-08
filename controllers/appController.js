@@ -26,6 +26,27 @@ class Crud{
             console.log(err)
         }
     }
+
+    async update(obj){
+        try{
+            await this.collection.update({obj})
+            
+
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    async delete(obj){
+        try{
+            await this.collection.update({obj})
+            
+
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 }
 
 

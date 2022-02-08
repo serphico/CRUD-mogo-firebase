@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import admin from 'firebase-admin'
+import path from 'path'
 
 import dotenv from 'dotenv';
 
@@ -11,7 +12,7 @@ export const baseDatos = mongoose.connect(process.env.DB_HOST)
 
 
 
-let serviceAccount = require("./controllers/serviceAccountKey.json");
+let serviceAccount = path.resolve("./controllers/serviceAccountKey.json");
 
 export const dbFirebase = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)

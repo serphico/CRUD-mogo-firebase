@@ -1,0 +1,19 @@
+div(class="form-update")
+    
+    form(action="/productos/update" method="POST")
+        button(class="btn btn-primary close-update col-2")
+            i(class="bi bi-x-circle-fill" style="color:white;")
+
+        div(class="mb-3")
+            label(for="title" class="form-label") Nombre del producto
+            input(type="text" class="form-control" id="title" name="title" required)
+
+        div(class="mb-3")
+            label(for="price" class="form-label") Precio del producto
+            input(type="number" class="form-control" id="price" name="price" required)
+
+        div(class="mb-3")
+            label(for="thumbnail" class="form-label") Thumbnail
+            input(type="text" class="form-control" id="thumbnail" name="thumbnail" required) 
+        
+        input(type="submit" class="btn btn-primary" value="Enviar")

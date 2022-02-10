@@ -20,6 +20,15 @@ class ProdDao extends Crud{
 
     }
 
+    async showByID(id){
+        try {
+            let prodById = await this.listById(id)
+            return prodById
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     async upload(obj){
         try {
             await this.insertProd(obj)
@@ -34,9 +43,9 @@ class ProdDao extends Crud{
             console.log(err)
         }
     }
-    async deleteProd(obj){
+    async deleteProd(id){
         try {
-            await this.delete(obj)
+            await this.delete(id)
         } catch (err) {
             console.log(err)
         }

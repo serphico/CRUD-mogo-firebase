@@ -1,4 +1,3 @@
-import express from 'express';
 import { Router } from 'express';
 import prodDao from '../DAOs/daoProducts.js'
 
@@ -20,22 +19,33 @@ prodRouter.get('/form-upload-productos',(req, res) =>{
     res.render('./layouts/form-prod.pug')
 })
 
-prodRouter.post('/upload-productos', (req, res) =>{
+prodRouter.post('/form-upload-productos', (req, res) =>{
     try{
-        prodDao.insertProd(req.body)
+        prodDao.upload(req.body);
+        res.redirect('/productos');
     }catch(err){
         console.log(err)
     }
 
 })
 
-prodRouter.post('/productos/update',(req, res) => {
-    console.log(req.body)
-    /*try{
-        prodDao.updateProd(req.body)
+prodRouter.put('/productos/update',(req, res) => {
+    try{
+        prodDao.updateProd(req.body);
+        res.redirect('/productos');
     }catch(err){
         console.log(err)
-    }*/
+    }
+})
+
+prodRouter.delete('/productos/:id',(req, res) => {
+    try {
+        prodDao.deleteProd(req.params.id);
+        
+
+    } catch (err) {
+        console.log(err)
+    }
 })
 
 export default prodRouter;

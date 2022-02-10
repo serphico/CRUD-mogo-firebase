@@ -8,12 +8,17 @@ html
                 h1 Productos
                 each prod in res
                     div(class="card col-3" style="margin:2%")
+                        button(id="close-update"+prod._id onclick="closeUpdate('"+prod._id+"')" class="btn btn-primary col-2 close-update")
+                            i(class="bi bi-x-circle-fill" style="color:white;")
                         include ../partials/update.pug
-                        button(class="btn btn-primary")
+                        button(id="edit-btn"+prod._id onclick="openUpdate('"+prod._id+"')" class="btn btn-primary")
                             i(class="bi bi-pencil-fill" style="color: white;")
-                        button(class="btn btn-primary")
+                        button(id="delete-btn"+prod._id class="btn btn-primary" onclick="deleteProd('"+prod._id+"')")
                             i(class="bi bi-trash3-fill" style="color: white;")                       
                         img(class="card-img-top" src= prod.thumbnail, alt="imagen producto")
                         div(class="card-body")
                             h5(class="card-title")= prod.title
                             p(class="card-text")= '$'+prod.price
+                        button(id="cart-btn"+prod._id class="btn btn-primary" onclick="addCart('"+prod._id+"')")
+                            i(class="bi bi-cart2" style="color: white;") comprar
+    script(src="./js/interactive-btn.js") 

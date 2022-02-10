@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import prodRouter from './router/routerProd.js'
+import cartRouter from './router/routerCart.js'
 
 dotenv.config();
 
@@ -19,5 +20,6 @@ app.set('views', "./views");
 
 
 app.use('/', prodRouter)
+app.use('/carrito', cartRouter)
 
 export default app;

@@ -3,6 +3,7 @@
 }
 
 .form-update{
+    display: none;
     position: absolute !important;
     background-color: white;
     width: 96%;
@@ -16,8 +17,15 @@
 .form-update form{
     display: flex;
     flex-direction: column;
+    padding-top: 30%;
 }
 
 .close-update{
-    align-content: flex-end;
+    display: none;
+    position: relative;
+    z-index: 100;
+}
+
+.thumbnailProd{
+    width: 5%;
 }

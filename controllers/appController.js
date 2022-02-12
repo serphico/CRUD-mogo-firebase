@@ -1,3 +1,4 @@
+
 class Crud{
     constructor(collection){
         this.collection = collection;
@@ -92,6 +93,23 @@ class Crud{
 
         }
 
+    }
+
+    async deleteCart(id){
+        try{
+            let cartExist = await this.collection.find()
+            let delProd = cartExist[0].productos;
+            let indexProd = delProd.findIndex(prod => prod.id === id)
+            delProd.pull(delProd[indexProd])
+            //console.log(delProd);
+            await this.collection.updateOne({"_id":cartExist[0]._id},{$set:{"productos":delProd}})
+            //await cartID[0].productos.deleteOne({"_id":id})*/
+            //console.log(cartID[0]._id);
+
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 }
 

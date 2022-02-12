@@ -1,11 +1,10 @@
-import * as model from '../controllers/schema.js';
-import Crud from '../controllers/appController.js';
-import {baseDatos} from '../config.js'
+import Crud from '../controllers/firebaseController.js';
+import {queryCart} from '../config.js'
 
-class CartDao extends Crud{
+class CartDaoFb extends Crud{
 
     constructor(){
-        super(model.carrito)
+        super(queryCart)
     }
 
     async show(){
@@ -21,7 +20,7 @@ class CartDao extends Crud{
 
     async add(obj){
         try {
-            await this.addProdCart(obj[0])
+            await this.addProdCart(obj)
         } catch (err) {
             console.log(err)
         }
@@ -45,6 +44,6 @@ class CartDao extends Crud{
 } 
 
 
-const cartDao = new CartDao();
+const cartDaoFb = new CartDaoFb();
 
-export default cartDao;
+export default cartDaoFb;

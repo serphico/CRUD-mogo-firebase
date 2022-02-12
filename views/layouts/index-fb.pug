@@ -1,0 +1,24 @@
+doctype html
+html
+    include ../partials/head.pug    
+    body
+        include ../partials/menu.pug
+        section(class="container")
+            div(class="row")
+                h1 Productos
+                each prod in res
+                    div(class="card col-3" style="margin:2%")
+                        button(id="close-update"+prod.id onclick="closeUpdate('"+prod.id+"')" class="btn btn-primary col-2 close-update")
+                            i(class="bi bi-x-circle-fill" style="color:white;")
+                        include ../partials/updatefb.pug
+                        button(id="edit-btn"+prod.id onclick="openUpdate('"+prod.id+"')" class="btn btn-primary")
+                            i(class="bi bi-pencil-fill" style="color: white;")
+                        button(id="delete-btn"+prod.id class="btn btn-primary" onclick="deleteProd('"+prod.id+"')")
+                            i(class="bi bi-trash3-fill" style="color: white;")                       
+                        img(class="card-img-top" src= prod.thumbnail, alt="imagen producto")
+                        div(class="card-body")
+                            h5(class="card-title")= prod.title
+                            p(class="card-text")= '$'+prod.price
+                        button(id="cart-btn"+prod.id class="btn btn-primary" onclick="addCart('"+prod.id+"')")
+                            i(class="bi bi-cart2" style="color: white;") comprar
+    script(src="./js/interactive-btn-firebase.js") 

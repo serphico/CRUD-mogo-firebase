@@ -1,5 +1,6 @@
 
 function openUpdate(id) {
+    console.log(id);
     let formUpdate= document.querySelector('#form-update'+id);
     let closeUpdate = document.querySelector('#close-update'+id);
 
@@ -20,7 +21,7 @@ function deleteProd(id) {
 
     console.log(id)
 
-    fetch('http://localhost:8080/productos/'+id, {
+    fetch('http://localhost:8080/productosfb/'+id, {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json",
@@ -35,7 +36,8 @@ function deleteProd(id) {
 }
 
 function addCart(id) {
-    fetch(`http://localhost:8080/carrito/agregar/${id}`, {
+
+    fetch(`http://localhost:8080/carrito/agregarfb/`+id, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
@@ -48,15 +50,16 @@ function addCart(id) {
 })
 .catch(err => { console.log(err)})
 
-setTimeout(() => {
+/*setTimeout(() => {
     return window.location.href = "/productos";
-}, 500);
+}, 500);*/
 
 
 }
 
 function deleteProdCart(id) {
-    fetch(`http://localhost:8080/carrito/${id}`, {
+    console.log(id)
+    fetch(`http://localhost:8080/carrito/carrito-fb/`+id, {
         method: 'DELETE',
         headers: {
             "Content-Type": "application/json",
@@ -71,7 +74,7 @@ function deleteProdCart(id) {
     })
     .catch(err => { console.log(err)})
 
-    setTimeout(() => {
+    /*setTimeout(() => {
         return location.reload(); 
-    }, 500);
+    }, 500);*/
 }
